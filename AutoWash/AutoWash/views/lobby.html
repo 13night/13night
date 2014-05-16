@@ -1,6 +1,18 @@
 ﻿<!--      ЛОББИ С КАРТОЙ       -->
 
 <script>
+selectedIndex = ko.observable(0);
+menuVisible = ko.observable(false);
+items = [
+        { text: 'Дойче Стандарт', icon: 'plus' },
+        { text: 'Автоцентр Альянс', icon: 'plus' },
+        { text: 'ООО Автомойка', icon: 'plus' },
+        { text: 'Авто Баня', icon: 'plus' },
+        { text: 'Эксперт', icon: 'plus' },	
+        { text: '->' }	
+]
+
+
 mapMarkers = [
   {
     title: "Дойче Стандарт ",
@@ -28,7 +40,7 @@ providers = [
   { text: "google" },
   { text: "googleStatic" }
 ];
-currentProvider = ko.observable("bing");
+currentProvider = ko.observable("google");
  
 changeMarkerVisibility = function () {
     mapMarkers[0].tooltip.isShown = !mapMarkers[0].tooltip.isShown;
@@ -46,21 +58,56 @@ tabClicked = function (itemClickOptions) {
  var gomoika=function() {
 	AutoWashApp.app.navigate('moika');
 }
+ 
+ var hideMarkers=function(){
+     
+     alert(document.getElementById('itemText').innerHTML);
+
+ }
 
 </script>
 
 
 <div data-options="dxView : { name: 'lobby', toolbar:false  } " >
+
   <div  data-options="dxContent : { targetPlaceholder: 'content' } " >  
-    
+      
+
+      
           <div class="top_bar">
+              
           <div class="gps_but"></div>
+            
           <form>
        		<input type="text" class="search_txt" placeholder="Поиск"/>
        		<div class="search_bt"></div>
        </form>
+              
         </div> 
-        
+    <div id="slideOut" data-bind="dxSlideOut:{dataSource: items, selectedIndex: selectedIndex,itemClickAction: hideMarkers,  menuVisible: menuVisible}" >
+    <div id="dxTemp"  data-options="dxTemplate : { name: 'item' }  ">
+        <div id = "borderButton" data-bind="dxButton: {
+                
+                clickAction: function() {
+                menuVisible(!menuVisible());
+                
+            }
+        }"></div>
+         	<div class="map" data-bind="dxMap: {
+  				markers: mapMarkers,
+                width: screen.width,
+                height: screen.height,
+				location: '61.8085012, 34.30240631',
+				zoom: 5,
+                markerIconSrc: 'img/marker_ico.png' ,
+  				provider: currentProvider
+				}"></div>
+        <p id = "itemText" >Currently selected menu item is: <b   data-bind="text: text"></b> </p>
+    </div>
+    <div  data-options="dxTemplate : { name: 'menuItem' } ">
+        <div data-bind="text: text"></div>
+    </div>
+</div>
         <div class="bot_bar">
         <div style=" width:100%; height:1px; clear:both;"></div>
         <div id="liniya" style="background:#6C6" data-bind="dxAction: gohome ">МОИ ЗАКАЗЫ</div>
@@ -72,15 +119,10 @@ tabClicked = function (itemClickOptions) {
           <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>
           
           <div data-bind="dxTabs: { dataSource: providers, itemClickAction: tabClicked, selectedIndex: 			1 }"></div>
-			<div class="map" data-bind="dxMap: {
-  				markers: mapMarkers,
-                width: screen.width,
-                height: screen.height,
-				location: '61.8085012, 34.30240631',
-				zoom: 5,
-                markerIconSrc: 'img/marker_ico.png' ,
-  				provider: currentProvider
-				}"></div>
+		
+      
+      
+      
 	</div>
     </div>
 </div>
