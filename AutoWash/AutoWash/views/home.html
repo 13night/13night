@@ -1,0 +1,21 @@
+﻿<!--      ОКНО ЛОГИНА       -->
+<script>
+ var go=function() {
+	AutoWashApp.app.navigate('lobby');
+}
+
+</script>
+<div data-options="dxView : { name: 'home', title: 'Home' } " >
+    <div style="background:#50b9ce;" class="home-view"  data-options="dxContent : { targetPlaceholder: 'content' } " >
+    <div data-bind="dxScrollView: { }">
+       <div class="logo"></div> 
+       <form>
+       <input type="text" class="name_txt" placeholder="Ваше имя"/>
+       <input type="text" class="name_txt" placeholder="Номер телефона"/>
+       <div data-bind="dxAction: go ">
+       <div class="login_but">ЗАБРОНИРОВАТЬ МОЙКУ</div>
+       </div>
+       </form>
+    </div>
+    </div>
+</div>
