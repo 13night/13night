@@ -1,9 +1,13 @@
 ﻿<!--      ЛОББИ С КАРТОЙ       -->
 
 <script>
+
+    
+
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
 items = [
+        { text: 'Автомойки:', icon: 'plus' },
         { text: 'Дойче Стандарт', icon: 'plus' },
         { text: 'Автоцентр Альянс', icon: 'plus' },
         { text: 'ООО Автомойка', icon: 'plus' },
@@ -11,6 +15,7 @@ items = [
         { text: 'Эксперт', icon: 'plus' },	
         { text: '->' }	
 ]
+
 
 
 mapMarkers = [
@@ -59,10 +64,113 @@ tabClicked = function (itemClickOptions) {
 	AutoWashApp.app.navigate('moika');
 }
  
- var hideMarkers=function(){
+ var hideMarkers=function(position){
      
-     alert(document.getElementById('itemText').innerHTML);
 
+     
+     
+     
+     
+   // AutoWashApp.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+   // function onDeviceReady() {
+   // navigator.geolocation.getCurrentPosition(onSuccess,onError);
+   // }
+    navigator.geolocation.watchPosition(onSuccess, onError);
+     
+   // }
+    var pos;
+     var posLat;
+     var posLon;
+    function onSuccess(position) {
+        pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
+        //pos = position;
+       
+        hideMarkers(position);
+      //  hideMarkers(posLon);
+        
+      
+    }
+
+     //onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    } 
+     
+    
+     
+  itemName = document.getElementById('itemText').innerHTML;
+     
+  if (itemName != "Автомойки:"){
+         
+    switch (itemName){
+            case items[1].text:
+            navigator.geolocation.getCurrentPosition(onSuccess,onError);
+            posLat = position.coords.latitude;
+            posLon = position.coords.longitude;
+            
+              //alert(posLat+","+posLon);
+            var map = $("#map1").dxMap("instance");
+            var mapOptions = {
+                zoom: 15,
+                routes: [{
+                weight: 5,
+                color: "blue",
+                locations: [
+                  //[61.805034,34.280579],
+                 //pos,
+                    [posLat,posLon],
+                
+                  [61.816328,34.31619]
+                  
+                ]
+            }]
+            }
+            
+                //mapMarkers[0] = undefined;
+                map.removeMarker(0);//remove marker
+                map.removeMarker(0);//remove marker
+                map.removeMarker(0);//remove marker
+                map.addMarker( {
+                                title: "Дойче Стандарт ",
+                                location: [61.816328,34.31619],
+                                clickAction: function () { document.getElementById('moika1').style.display = 'block';
+                                                           document.getElementById('dark_bg').style.display = 'block'; 	
+                                }
+                              }
+                             )
+               // map.addRoute(routeOptions);
+                map.repaint();
+                map.option(mapOptions);
+                
+               
+                //alert('Дойче Стандарт');
+                break
+                case items[2].text:
+                alert('Авто Альянс');
+                break
+                case items[3].text:
+                alert('ООО Автомойка');
+                break
+                case items[4].text:
+                alert('Автобаня');
+                break
+                case items[5].text:
+                alert('Эксперт');
+                break
+                case items[6].text:
+                alert('-->');
+                break
+                default:
+                
+                break
+        }
+         
+     }
  }
 
 </script>
@@ -84,16 +192,10 @@ tabClicked = function (itemClickOptions) {
        </form>
               
         </div> 
-    <div id="slideOut" data-bind="dxSlideOut:{dataSource: items, selectedIndex: selectedIndex,itemClickAction: hideMarkers,  menuVisible: menuVisible}" >
-    <div id="dxTemp"  data-options="dxTemplate : { name: 'item' }  ">
-        <div id = "borderButton" data-bind="dxButton: {
-                
-                clickAction: function() {
-                menuVisible(!menuVisible());
-                
-            }
-        }"></div>
-         	<div class="map" data-bind="dxMap: {
+<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,itemClickAction: hideMarkers, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
+    <div data-options="dxTemplate : { name: 'item' } ">
+        
+         <div class="map" id="map1" data-bind="dxMap: {
   				markers: mapMarkers,
                 width: screen.width,
                 height: screen.height,
@@ -101,11 +203,14 @@ tabClicked = function (itemClickOptions) {
 				zoom: 5,
                 markerIconSrc: 'img/marker_ico.png' ,
   				provider: currentProvider
-				}"></div>
-        <p id = "itemText" >Currently selected menu item is: <b   data-bind="text: text"></b> </p>
+				}">
+        </div>
+        <p>Currently selected menu item is: <b id="itemText" data-bind="text: text"></b> </p>
+       
     </div>
-    <div  data-options="dxTemplate : { name: 'menuItem' } ">
-        <div data-bind="text: text"></div>
+   
+    <div data-options="dxTemplate : { name: 'menuItem' } ">
+        This is <div data-bind="text: text"></div>
     </div>
 </div>
         <div class="bot_bar">
@@ -120,7 +225,7 @@ tabClicked = function (itemClickOptions) {
           
           <div data-bind="dxTabs: { dataSource: providers, itemClickAction: tabClicked, selectedIndex: 			1 }"></div>
 		
-      
+ 
       
       
 	</div>
