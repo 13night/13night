@@ -71,13 +71,13 @@ tabClicked = function (itemClickOptions) {
      
      
      
-   // AutoWashApp.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
-   // function onDeviceReady() {
-   // navigator.geolocation.getCurrentPosition(onSuccess,onError);
-   // }
+    function onDeviceReady() {
+    navigator.geolocation.getCurrentPosition(onSuccess,onError);
+    }
     navigator.geolocation.watchPosition(onSuccess, onError);
      
    // }
@@ -109,7 +109,7 @@ tabClicked = function (itemClickOptions) {
          
     switch (itemName){
             case items[1].text:
-            navigator.geolocation.getCurrentPosition(onSuccess,onError);
+           // navigator.geolocation.getCurrentPosition(onSuccess,onError);
             posLat = position.coords.latitude;
             posLon = position.coords.longitude;
             
