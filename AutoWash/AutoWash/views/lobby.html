@@ -1,9 +1,30 @@
 ﻿<!--      ЛОББИ С КАРТОЙ       -->
 
 <script>
+    getCoordinates = function(){
+var pos;
+var posLat;
+var posLon;
+navigator.geolocation.getCurrentPosition(onSuccess,onError);   
 
+    function onSuccess(position) {
+        pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
+        //pos = position;
+       
+        hideMarkers(position);
+      //  hideMarkers(posLon);
+        
+      
+    }
+
+     //onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    } 
     
-
+    }
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
 items = [
@@ -68,38 +89,7 @@ tabClicked = function (itemClickOptions) {
      
 
      
-     
-     
-     
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess,onError);
-    }
-    navigator.geolocation.watchPosition(onSuccess, onError);
-     
-   // }
-    var pos;
-     var posLat;
-     var posLon;
-    function onSuccess(position) {
-        pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
-        //pos = position;
-       
-        hideMarkers(position);
-      //  hideMarkers(posLon);
-        
-      
-    }
-
-     //onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-    } 
+    
      
     
      
@@ -109,7 +99,7 @@ tabClicked = function (itemClickOptions) {
          
     switch (itemName){
             case items[1].text:
-           // navigator.geolocation.getCurrentPosition(onSuccess,onError);
+           //navigator.geolocation.getCurrentPosition(onSuccess,onError);
             posLat = position.coords.latitude;
             posLon = position.coords.longitude;
             
@@ -135,6 +125,7 @@ tabClicked = function (itemClickOptions) {
                 map.removeMarker(0);//remove marker
                 map.removeMarker(0);//remove marker
                 map.removeMarker(0);//remove marker
+               
                 map.addMarker( {
                                 title: "Дойче Стандарт ",
                                 location: [61.816328,34.31619],
@@ -147,7 +138,9 @@ tabClicked = function (itemClickOptions) {
                 map.repaint();
                 map.option(mapOptions);
                 
-               
+                itemName = "Автомойки:";
+                
+             
                 //alert('Дойче Стандарт');
                 break
                 case items[2].text:
@@ -171,6 +164,7 @@ tabClicked = function (itemClickOptions) {
         }
          
      }
+     
  }
 
 </script>
@@ -192,7 +186,7 @@ tabClicked = function (itemClickOptions) {
        </form>
               
         </div> 
-<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,itemClickAction: hideMarkers, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
+<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,itemClickAction: hideMarkers,itemClickAction: getCoordinates, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
     <div data-options="dxTemplate : { name: 'item' } ">
         
          <div class="map" id="map1" data-bind="dxMap: {
