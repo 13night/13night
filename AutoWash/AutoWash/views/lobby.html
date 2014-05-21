@@ -17,7 +17,7 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
       //  hideMarkers(posLon);
           
             
-      alert(pos);
+      //alert(pos);
     }
 
      //onError Callback receives a PositionError object
@@ -107,7 +107,7 @@ tabClicked = function (itemClickOptions) {
     switch (itemName){
             case items[1].text:
            getCoordinates();  
-           alert(position.coords.latitude,position.coords.longitude);
+           //alert(position.coords.latitude,position.coords.longitude);
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
             //posLat = position.coords.latitude;
             //posLon = position.coords.longitude;
@@ -120,9 +120,9 @@ tabClicked = function (itemClickOptions) {
                 weight: 5,
                 color: "blue",
                 locations: [
-                  [61.805034,34.280579],
+                  //[61.805034,34.280579],
                  //pos,
-                   //[position.coords.latitude,position.coords.longitude],
+                   [position.coords.latitude,position.coords.longitude],
                 
                   [61.816328,34.31619]
                   
