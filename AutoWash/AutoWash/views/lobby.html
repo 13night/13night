@@ -96,7 +96,7 @@ tabClicked = function (itemClickOptions) {
   itemName = document.getElementById('itemText').innerHTML;
      
   if (itemName != "Автомойки:"){
-         
+     getCoordinates();    
     switch (itemName){
             case items[1].text:
            
@@ -187,7 +187,7 @@ tabClicked = function (itemClickOptions) {
        </form>
               
         </div> 
-<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,  itemClickAction: hideMarkers, getCoordinates, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
+<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,  itemClickAction: hideMarkers, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
     <div data-options="dxTemplate : { name: 'item' } ">
         
          <div class="map" id="map1" data-bind="dxMap: {
