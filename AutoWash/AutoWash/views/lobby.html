@@ -33,17 +33,17 @@ function onSuccess(position) {
 
     }
     
-  /*  function updateUserPos(position){
+    function updateUserPos(position){
     	geolocOpt2 = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
     	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt2);
     	var map2 = $("#map1").dxMap("instance");
-   	map2.addMarker( {
+   /*	map2.addMarker( {
                                 title: "Вы ",
                                 location: [posLat,posLon],
                                 clickAction: changeMarkerVisibility();
-                              });
+                              });*/
     	
-    }*/
+    }
     
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
