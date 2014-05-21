@@ -131,6 +131,7 @@ tabClicked = function (itemClickOptions) {
              // alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
             var mapOptions = {
+            	location:[posLat,posLon],
                 zoom: 15,
                 routes: [{
                 weight: 5,
