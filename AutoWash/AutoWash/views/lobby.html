@@ -94,7 +94,8 @@ tabClicked = function (itemClickOptions) {
  var hideMarkers=function(position){
      
 
-     
+     var posLat = position.coords.latitude;
+     var posLon = position.coords.longitude;
     
      
     
@@ -109,8 +110,7 @@ tabClicked = function (itemClickOptions) {
            getCoordinates();  
            //alert(position.coords.latitude,position.coords.longitude);
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
-            //posLat = position.coords.latitude;
-            //posLon = position.coords.longitude;
+           
             
               //alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
@@ -122,7 +122,7 @@ tabClicked = function (itemClickOptions) {
                 locations: [
                   //[61.805034,34.280579],
                  //pos,
-                   [position.coords.latitude,position.coords.longitude],
+                   [posLat,posLon],
                 
                   [61.816328,34.31619]
                   
