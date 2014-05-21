@@ -13,7 +13,7 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
     
     }
     
-     function onSuccess(position) {
+    var onSuccess = function(position) {
          var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
@@ -25,7 +25,7 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
 
      //onError Callback receives a PositionError object
     //
-    function onError(error) {
+    var onError = function(error) {
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     } 
