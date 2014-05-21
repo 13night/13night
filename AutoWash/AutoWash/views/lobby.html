@@ -104,7 +104,7 @@ tabClicked = function (itemClickOptions) {
      
   itemName = document.getElementById('itemText').innerHTML;
      
-  if (itemName != "Автомойки:"){
+  if (itemName != "Автомойки:" && canRenew == true ){
        
      getCoordinates();  
     switch (itemName){
@@ -150,6 +150,7 @@ tabClicked = function (itemClickOptions) {
                // map.addRoute(routeOptions);
                // map.repaint();
                 itemName = "Автомойки:";
+                canRenew = false;
                 map.option(mapOptions);
                 
                 
