@@ -96,11 +96,11 @@ tabClicked = function (itemClickOptions) {
   itemName = document.getElementById('itemText').innerHTML;
      
   if (itemName != "Автомойки:"){
-     getCoordinates();    
+       
      
     switch (itemName){
             case items[1].text:
-           
+           getCoordinates();  
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
             //posLat = position.coords.latitude;
             //posLon = position.coords.longitude;
