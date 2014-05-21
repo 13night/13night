@@ -26,7 +26,7 @@ function onSuccess(position) {
                 'message: ' + error.message + '\n');
     } 
     
-    geolocOpt = { maximumAge: 3000, timeout: 150000000000, enableHighAccuracy: false };
+    geolocOpt = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
    	
     navigator.geolocation.getCurrentPosition(onSuccess,onError,geolocOpt);   
 
@@ -103,10 +103,10 @@ tabClicked = function (itemClickOptions) {
     
      
   itemName = document.getElementById('itemText').innerHTML;
-     
+   getCoordinates();   
   if (itemName != "Автомойки:"  ){
        
-     getCoordinates();  
+      
     switch (itemName){
            case items[1].text:
            
