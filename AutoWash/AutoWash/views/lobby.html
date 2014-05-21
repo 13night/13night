@@ -26,10 +26,10 @@ function onSuccess(position) {
                 'message: ' + error.message + '\n');
     } 
     
-    geolocOpt = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: false };
+    geolocOpt = { maximumAge: 3000, timeout: 15000, enableHighAccuracy: false };
    	
     navigator.geolocation.getCurrentPosition(onSuccess,onError,geolocOpt);   
-	setTimeout("getCoordinates()",5000)
+	setTimeout("getCoordinates()",10000)
     }
     
     
