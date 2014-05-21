@@ -23,8 +23,7 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     } 
-    hideMarkers(position);
-      //  hideMarkers(posLon);
+    
     }
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
@@ -102,8 +101,8 @@ tabClicked = function (itemClickOptions) {
             case items[1].text:
            
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
-            //posLat = position.coords.latitude;
-            //posLon = position.coords.longitude;
+            posLat = position.coords.latitude;
+            posLon = position.coords.longitude;
             
               //alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
@@ -115,8 +114,7 @@ tabClicked = function (itemClickOptions) {
                 locations: [
                   //[61.805034,34.280579],
                  //pos,
-                    [position.coords.latitude;,position.coords.longitude;
-            ],
+                    [posLat,posLon],
                 
                   [61.816328,34.31619]
                   
