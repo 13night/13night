@@ -2,14 +2,19 @@
 
 <script>
 getCoordinates = function(){
-	alert('lol');
-var pos;
-var posLat;
-var posLon;
+
+//var pos;
+//var posLat;
+//var posLon;
+
 navigator.geolocation.getCurrentPosition(onSuccess,onError);   
 
-    function onSuccess(position) {
-        pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
+   
+    
+    }
+    
+     function onSuccess(position) {
+         var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
         hideMarkers(position);
@@ -24,8 +29,6 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     } 
-    
-    }
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
 items = [
