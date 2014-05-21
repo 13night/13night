@@ -14,7 +14,7 @@ navigator.geolocation.getCurrentPosition(onSuccess,onError);
         hideMarkers(position);
       //  hideMarkers(posLon);
         
-      
+      alert(pos);
     }
 
      //onError Callback receives a PositionError object
@@ -97,7 +97,7 @@ tabClicked = function (itemClickOptions) {
      
   if (itemName != "Автомойки:"){
      getCoordinates();    
-     alert('go next step')
+     
     switch (itemName){
             case items[1].text:
            
