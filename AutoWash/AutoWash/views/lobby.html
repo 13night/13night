@@ -7,9 +7,8 @@ getCoordinates = function(){
 //var posLat;
 //var posLon;
 
-navigator.geolocation.watchPosition(onSuccess,onError);   
 
-	function onSuccess(position) {
+function onSuccess(position) {
          var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
@@ -27,7 +26,8 @@ navigator.geolocation.watchPosition(onSuccess,onError);
                 'message: ' + error.message + '\n');
     } 
    	
-    
+    navigator.geolocation.watchPosition(onSuccess,onError);   
+
     }
     
     
