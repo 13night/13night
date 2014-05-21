@@ -33,8 +33,9 @@ function onSuccess(position) {
 
     }
     
-    function updateUserPos(position){
-    	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt);
+  /*  function updateUserPos(position){
+    	geolocOpt2 = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
+    	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt2);
     	var map2 = $("#map1").dxMap("instance");
    	map2.addMarker( {
                                 title: "Вы ",
@@ -42,7 +43,7 @@ function onSuccess(position) {
                                 clickAction: changeMarkerVisibility();
                               });
     	
-    }
+    }*/
     
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
