@@ -29,7 +29,7 @@ function onSuccess(position) {
     geolocOpt = { maximumAge: 3000, timeout: 15000, enableHighAccuracy: false };
    	
     navigator.geolocation.getCurrentPosition(onSuccess,onError,geolocOpt);   
-	setTimeout("getCoordinates()",10000)
+	setTimeout("hideMarkers()",10000)
     }
     
     
