@@ -9,6 +9,7 @@ getCoordinates = function(){
 
 
 function onSuccess(position) {
+	var map2 = $("#map1").dxMap("instance");
          var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
@@ -17,6 +18,13 @@ function onSuccess(position) {
           
             return hideMarkers(position);
             return updateUserPos(position);
+            map2.addMarker( {
+                                title: "Вы ",
+                                location: [position.coords.latitude,position.coords.longitude],
+                                 clickAction: function () { mapMarkers[0].tooltip.isShown = !mapMarkers[0].tooltip.isShown; 	
+                                }
+                              })
+    	
       //alert(pos);
     }
 
@@ -35,13 +43,7 @@ function onSuccess(position) {
     
     function updateUserPos(position){
     	geolocOpt2 = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
-    	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt2);
-    	var map2 = $("#map1").dxMap("instance");
-   	map2.addMarker( {
-                                title: "Вы ",
-                                location: [position.coords.latitude,position.coords.longitude],
-                               // clickAction: changeMarkerVisibility();
-                              })
+    
     	
     }
     
