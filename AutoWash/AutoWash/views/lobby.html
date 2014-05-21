@@ -26,7 +26,7 @@ function onSuccess(position) {
                 'message: ' + error.message + '\n');
     } 
     
-    geolocOpt = { maximumAge: 3000, timeout: 15000, enableHighAccuracy: false };
+    geolocOpt = { maximumAge: 3000, timeout: 150000000000, enableHighAccuracy: false };
    	
     navigator.geolocation.getCurrentPosition(onSuccess,onError,geolocOpt);   
 
@@ -95,7 +95,7 @@ tabClicked = function (itemClickOptions) {
  
  var hideMarkers=function(position){
      
-	var canRenew = true;
+	
    //  var posLat = position.coords.latitude;
      //var posLon = position.coords.longitude;
     
@@ -104,7 +104,7 @@ tabClicked = function (itemClickOptions) {
      
   itemName = document.getElementById('itemText').innerHTML;
      
-  if (itemName != "Автомойки:" && canRenew == true ){
+  if (itemName != "Автомойки:"  ){
        
      getCoordinates();  
     switch (itemName){
@@ -113,7 +113,7 @@ tabClicked = function (itemClickOptions) {
            //alert(position.coords.latitude,position.coords.longitude);
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
            
-             var posLat = position.coords.latitude;
+        var posLat = position.coords.latitude;
      	var posLon = position.coords.longitude;
     
              // alert(posLat+","+posLon);
@@ -150,7 +150,7 @@ tabClicked = function (itemClickOptions) {
                // map.addRoute(routeOptions);
                // map.repaint();
                 itemName = "Автомойки:";
-                canRenew = false;
+                
                 map.option(mapOptions);
                 
                 
@@ -179,7 +179,7 @@ tabClicked = function (itemClickOptions) {
         }
          
      }
-     //	setTimeout("hideMarkers()",10000)
+     	setTimeout("hideMarkers()",1000000)
  }
 
 </script>
