@@ -9,26 +9,43 @@ getCoordinates = function(){
 
 navigator.geolocation.getCurrentPosition(onSuccess,onError);   
 
-   
-    
-    }
-    
-    var onSuccess = function(position) {
+	function onSuccess(position) {
          var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
-        hideMarkers(position);
+       // hideMarkers(position);
       //  hideMarkers(posLon);
-        
+          var map = $("#map1").dxMap("instance");
+            var mapOptions = {
+                zoom: 15,
+                routes: [{
+                weight: 5,
+                color: "blue",
+                locations: [
+                  //[61.805034,34.280579],
+                 //pos,
+                   [position.coords.latitude,position.coords.longitude],
+                
+                  [61.816328,34.31619]
+                  
+                ]
+            }]
+            }
+            
       alert('lol');
     }
 
      //onError Callback receives a PositionError object
     //
-    var onError = function(error) {
+    function onError(error) {
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     } 
+   
+    
+    }
+    
+    
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
 items = [
@@ -111,7 +128,7 @@ tabClicked = function (itemClickOptions) {
             
               //alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
-            var mapOptions = {
+          /*  var mapOptions = {
                 zoom: 15,
                 routes: [{
                 weight: 5,
@@ -119,13 +136,13 @@ tabClicked = function (itemClickOptions) {
                 locations: [
                   //[61.805034,34.280579],
                  //pos,
-                    [61.811413,34.316155],
+                   [position.coords.latitude,position.coords.longitude],
                 
                   [61.816328,34.31619]
                   
                 ]
             }]
-            }
+            }*/
             
                 //mapMarkers[0] = undefined;
                 map.removeMarker(0);//remove marker
