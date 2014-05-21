@@ -16,7 +16,7 @@ function onSuccess(position) {
       //  hideMarkers(posLon);
           
             return hideMarkers(position);
-            return updateUserPos(position)
+            return updateUserPos(position);
       //alert(pos);
     }
 
@@ -35,12 +35,12 @@ function onSuccess(position) {
     
     function updateUserPos(position){
     	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt);
-    	var map = $("#map1").dxMap("instance");
-   	map.addMarker( {
+    	var map2 = $("#map1").dxMap("instance");
+   	map2.addMarker( {
                                 title: "Вы ",
                                 location: [posLat,posLon],
                                 clickAction: changeMarkerVisibility();
-                              })
+                              });
     	
     }
     
@@ -166,30 +166,30 @@ tabClicked = function (itemClickOptions) {
                 
                 map.option(mapOptions);
                 
-                document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 
              
                 //alert('Дойче Стандарт');
                 break
                 case items[2].text:
                 alert('Авто Альянс');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 break
                 case items[3].text:
                 alert('ООО Автомойка');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 break
                 case items[4].text:
                 alert('Автобаня');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 break
                 case items[5].text:
                 alert('Эксперт');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 break
                 case items[6].text:
                 alert('-->');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
                 break
                 default:
                 
