@@ -97,6 +97,7 @@ tabClicked = function (itemClickOptions) {
      
   if (itemName != "Автомойки:"){
      getCoordinates();    
+     alert('go next step')
     switch (itemName){
             case items[1].text:
            
@@ -114,7 +115,7 @@ tabClicked = function (itemClickOptions) {
                 locations: [
                   //[61.805034,34.280579],
                  //pos,
-                    [posLat,posLon],
+                    [position.coords.latitude,posLon = position.coords.longitude],
                 
                   [61.816328,34.31619]
                   
