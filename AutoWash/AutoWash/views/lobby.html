@@ -106,10 +106,10 @@ tabClicked = function (itemClickOptions) {
      
   if (itemName != "Автомойки:"){
        
-     
+     getCoordinates();  
     switch (itemName){
            case items[1].text:
-           getCoordinates();  
+           
            //alert(position.coords.latitude,position.coords.longitude);
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
            
@@ -148,7 +148,7 @@ tabClicked = function (itemClickOptions) {
                               }
                              )
                // map.addRoute(routeOptions);
-                map.repaint();
+               // map.repaint();
                 itemName = "Автомойки:";
                 map.option(mapOptions);
                 
