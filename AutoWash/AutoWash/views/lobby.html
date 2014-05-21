@@ -36,12 +36,12 @@ function onSuccess(position) {
 
     }
     
-    function updateUserPos(position){
+   /* function updateUserPos(position){
     	geolocOpt2 = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
     	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt2);  
     	
     	
-    }
+    }*/
     
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
@@ -174,30 +174,30 @@ tabClicked = function (itemClickOptions) {
                 
                 map.option(mapOptions);
                 
-                document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 
              
                 //alert('Дойче Стандарт');
                 break
                 case items[2].text:
                 alert('Авто Альянс');
-                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[3].text:
                 alert('ООО Автомойка');
-                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[4].text:
                 alert('Автобаня');
-                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[5].text:
                 alert('Эксперт');
-                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[6].text:
                 alert('-->');
-                 document.getElementById('itemText').innerHTML = "Автомойки:";//stops the switch execution
+                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 default:
                 
@@ -205,9 +205,9 @@ tabClicked = function (itemClickOptions) {
         }
          
      }
-     else{
+    /* else{
      	updateUserPos();
-     }
+     }*/
      //	setTimeout("hideMarkers()",90000)
  }
 
