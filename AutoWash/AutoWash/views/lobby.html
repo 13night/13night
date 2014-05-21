@@ -94,7 +94,7 @@ tabClicked = function (itemClickOptions) {
  var hideMarkers=function(position){
      
 
-     //var posLat = position.coords.latitude;
+   //  var posLat = position.coords.latitude;
      //var posLon = position.coords.longitude;
     
      
@@ -111,7 +111,9 @@ tabClicked = function (itemClickOptions) {
            //alert(position.coords.latitude,position.coords.longitude);
            //navigator.geolocation.getCurrentPosition(onSuccess,onError);
            
-            
+             var posLat = position.coords.latitude;
+     	var posLon = position.coords.longitude;
+    
               alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
             var mapOptions = {
