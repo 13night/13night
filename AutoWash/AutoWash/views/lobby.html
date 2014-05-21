@@ -1,7 +1,7 @@
 ﻿<!--      ЛОББИ С КАРТОЙ       -->
 
 <script>
-    getCoordinates = function(){
+getCoordinates = function(){
 var pos;
 var posLat;
 var posLon;
@@ -187,7 +187,7 @@ tabClicked = function (itemClickOptions) {
        </form>
               
         </div> 
-<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,  itemClickAction: hideMarkers, itemClickAction: getCoordinates, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
+<div id="slideOut" data-bind="dxSlideOut:{dataSource: items,  itemClickAction: hideMarkers, getCoordinates, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
     <div data-options="dxTemplate : { name: 'item' } ">
         
          <div class="map" id="map1" data-bind="dxMap: {
