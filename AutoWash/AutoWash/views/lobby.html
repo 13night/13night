@@ -9,7 +9,6 @@ getCoordinates = function(){
 
 
 function onSuccess(position) {
-	
          var pos = "["+position.coords.latitude+","+position.coords.longitude+"]"  ;
         //pos = position;
        
@@ -17,9 +16,6 @@ function onSuccess(position) {
       //  hideMarkers(posLon);
           
             return hideMarkers(position);
-            return updateUserPos(position);
-            
-    	
       //alert(pos);
     }
 
@@ -32,16 +28,10 @@ function onSuccess(position) {
     
     geolocOpt = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
    	
-     
+    navigator.geolocation.getCurrentPosition(onSuccess,onError,geolocOpt);   
 
     }
     
-   /* function updateUserPos(position){
-    	geolocOpt2 = { maximumAge: 3000, timeout: 150000, enableHighAccuracy: false };
-    	navigator.geolocation.watchPosition(onSuccess,onError,geolocOpt2);  
-    	
-    	
-    }*/
     
 selectedIndex = ko.observable(0);
 menuVisible = ko.observable(false);
@@ -88,7 +78,6 @@ currentProvider = ko.observable("google");
  
 changeMarkerVisibility = function () {
     mapMarkers[0].tooltip.isShown = !mapMarkers[0].tooltip.isShown;
-    
 }
  
 //Assigns the clicked tab text to the currentProvider variable
@@ -130,7 +119,6 @@ tabClicked = function (itemClickOptions) {
              // alert(posLat+","+posLon);
             var map = $("#map1").dxMap("instance");
             var mapOptions = {
-            	location:[posLat,posLon],
                 zoom: 15,
                 routes: [{
                 weight: 5,
@@ -158,15 +146,6 @@ tabClicked = function (itemClickOptions) {
                                                            document.getElementById('dark_bg').style.display = 'block'; 	
                                 }
                               }
-                              
-                              
-                               /*{
-                                title: "Вы ",
-                                location: [posLat,posLon],
-                                 //clickAction: function () { mapMarkers[0].tooltip.isShown = !mapMarkers[0].tooltip.isShown; 	
-                                //}
-                              }*/
-                              
                              )
                // map.addRoute(routeOptions);
                // map.repaint();
@@ -174,30 +153,25 @@ tabClicked = function (itemClickOptions) {
                 
                 map.option(mapOptions);
                 
-                document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
+                document.getElementById('itemText').innerHTML = "Автомойки:"
                 
              
                 //alert('Дойче Стандарт');
                 break
                 case items[2].text:
                 alert('Авто Альянс');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[3].text:
                 alert('ООО Автомойка');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[4].text:
                 alert('Автобаня');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[5].text:
                 alert('Эксперт');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 case items[6].text:
                 alert('-->');
-                 document.getElementById('itemText').innerHTML = "Автомойки:"//stops the switch execution
                 break
                 default:
                 
@@ -205,9 +179,6 @@ tabClicked = function (itemClickOptions) {
         }
          
      }
-    /* else{
-     	updateUserPos();
-     }*/
      //	setTimeout("hideMarkers()",90000)
  }
 
@@ -248,7 +219,7 @@ tabClicked = function (itemClickOptions) {
     </div>
    
     <div data-options="dxTemplate : { name: 'menuItem' } ">
-         <div data-bind="text: text"></div>
+        This is <div data-bind="text: text"></div>
     </div>
 </div>
         <div class="bot_bar">
