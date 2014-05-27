@@ -157,9 +157,10 @@ tabClicked = function (itemClickOptions) {
                 map.addMarker( {
                                 title: "Дойче Стандарт ",
                                 location: [61.816328,34.31619],
-                                clickAction: function () { //document.getElementById('moika1').style.display = 'block';
-                                                           //document.getElementById('dark_bg').style.display = 'block';
-                                                           popupVisible(true);
+                                clickAction: function () { document.getElementById('moika1').style.display = 'block';
+                                                           document.getElementById('dark_bg').style.display = 'block';
+                                                           document.getElementById('slideOut').style.display = 'none';
+                                                           
                                 }
                               }
                              )
@@ -216,22 +217,16 @@ tabClicked = function (itemClickOptions) {
        </form>
               
         </div> 
+        
+         <div id="moika1" class="moika"  data-bind="dxAction: gomoika "><img src="img/marker_info.png" width="130" height="130" /> </div>
+	 <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>
+
+
+        
 <div id="slideOut" data-bind="dxSlideOut:{dataSource: items,  itemClickAction: hideMarkers, selectedIndex: selectedIndex,  menuVisible: menuVisible, }">
     <div data-options="dxTemplate : { name: 'item' } ">
     
-        <!--<div id="moika1" class="moika"  data-bind="dxAction: gomoika "><img src="img/marker_info.png" width="130" height="130" /> </div>
-	 <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>-->
-<div class="moika" data-bind="dxPopup:{visible:popupVisible, fullScreen:true}">
-    <div data-options="dxTemplate:{name: 'title'}">
-        <p>Popup title is <b data-bind="text: popupTitle"></b></p>
-        <p><span data-bind="dxCheckBox: { checked: buttonVisible }"></span>&nbsp;Show "Hide popup" button</p>
-    </div>
-    <div data-options="dxTemplate:{name: 'content'}">
-        <div class="button" data-bind="dxButton: { text: 'Hide popup', clickAction: hidePopup, visible: buttonVisible }"></div>
-        <p>The popup contents.</p>
-    </div>
-</div>
-
+       
          <div class="map" id="map1" data-bind="dxMap: {
   				markers: mapMarkers,
                 width: screen.width,
