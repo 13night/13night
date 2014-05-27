@@ -121,19 +121,18 @@
 
 .map
 {
-	position: absolute;
-	background:#fffff;
-    border-left: solid,8px;
-    left: 5%;
+	/*position: absolute;*/
+ 	background:#fffff;
+    	border-left: solid,8px;
+    	left: 5%;
 	width:100%;
-    z-index: 20;
+    
 }
 
 .moika
 {
 	position:absolute;
-   
-	left: 50%;
+   	left: 50%;
 	margin-left: -65px;
 	top:40%;
 	display:none;
