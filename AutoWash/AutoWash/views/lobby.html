@@ -189,7 +189,8 @@ tabClicked = function (itemClickOptions) {
 
   <div  data-options="dxContent : { targetPlaceholder: 'content' } " >  
       
-
+ <div id="moika1" class="moika"  data-bind="dxAction: gomoika "><img src="img/marker_info.png" width="130" height="130" /> </div>
+ <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>
       
           <div class="top_bar">
               
@@ -229,8 +230,7 @@ tabClicked = function (itemClickOptions) {
         <div style=" width:100%; height:1px; clear:both;"></div>
         </div>     
           
-          <div id="moika1" class="moika"  data-bind="dxAction: gomoika "><img src="img/marker_info.png" width="130" height="130" /> </div>
-          <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>
+         
           
           <div data-bind="dxTabs: { dataSource: providers, itemClickAction: tabClicked, selectedIndex: 			1 }"></div>
 		
