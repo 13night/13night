@@ -221,7 +221,7 @@ tabClicked = function (itemClickOptions) {
     
         <!--<div id="moika1" class="moika"  data-bind="dxAction: gomoika "><img src="img/marker_info.png" width="130" height="130" /> </div>
 	 <div id="dark_bg" class="dark" onclick="document.getElementById('moika1').style.display = 'none';document.getElementById('dark_bg').style.display = 'none';"></div>-->
-<div data-bind="dxPopup:{visible:popupVisible, fullScreen:true}">
+<div class="moika" data-bind="dxPopup:{visible:popupVisible, fullScreen:true}">
     <div data-options="dxTemplate:{name: 'title'}">
         <p>Popup title is <b data-bind="text: popupTitle"></b></p>
         <p><span data-bind="dxCheckBox: { checked: buttonVisible }"></span>&nbsp;Show "Hide popup" button</p>
